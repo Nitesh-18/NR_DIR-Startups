@@ -5,6 +5,7 @@ import { client } from '@/sanity/lib/client';
 import { STARTUPS_QUERY } from '@/sanity/lib/queries';
 import { StartupTypeCard } from '@/components/StartupCard';
 import { sanityFetch, SanityLive } from '@/sanity/lib/live';
+import { auth } from '@/auth';
 
 export default async function Home({ searchParams }: {
   searchParams: Promise<{ query?: string }>
@@ -12,23 +13,12 @@ export default async function Home({ searchParams }: {
   const query = (await searchParams).query;
   const params = { search: query || null };
 
+  const session = await auth();
+  console.log(session?.id);
+
   // const posts = await client.fetch(STARTUPS_QUERY);  Old Fetch Line
   const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params })
-  // console.log('Posts:', JSON.stringify(posts, null, 2))
 
-  // const posts = [{
-  //   _createdAt: 'Today',
-  //   _id: '123',
-  //   views: 95,
-  //   author: {
-  //     _id: 1,
-  //     name:'Player'
-  //   },
-  //   description: 'This is a description sample',
-  //   category: 'Robots',
-  //   title: 'We Robots',
-  //   image: 'https://unsplash.com/photos/man-in-black-and-blue-suit-riding-on-silver-motorcycle-iE7AmEF-9wk'
-  // }]
 
   return (
     <>
