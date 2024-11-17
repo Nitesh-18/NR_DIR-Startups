@@ -49,3 +49,31 @@ export const AUTHOR_BY_GITHUB_ID_QUERY = defineQuery(`
     email
   }
   `);
+
+export const AUTHOR_BY_ID_QUERY = defineQuery(`
+  *[_type == "author" && _id == $id] [0]{
+    _id,
+    id,
+    name,
+    image,
+    bio,
+    username,
+    email
+  }
+  `);
+
+export const STARTUPS_BY_AUTHOR_QUERY =
+  defineQuery(`*[_type == "startup" && author._ref == $id] | order(_createdAt desc)
+{
+  _id,
+  title,
+  slug,
+  _createdAt,
+  author -> {
+    _id, image, bio, name
+  },
+  views,
+  description,
+  category,
+  image
+}`);
