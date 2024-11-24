@@ -69,12 +69,18 @@ const Navbar = async () => {
                         <form
                             action={async () => {
                                 "use server";
-
                                 await signIn("github");
                             }}
+                            className="group inline-block"
                         >
-                            <button type="submit">Login</button>
+                            <button
+                                type="submit"
+                                className="px-4 py-2 rounded-md bg-[#ff5c1b] text-white font-semibold transition duration-300 ease-in-out transform group-hover:scale-105 group-hover:brightness-110 group-hover:text-[#ff741e]"
+                            >
+                                Login
+                            </button>
                         </form>
+
                     )}
                 </div>
             </nav>
