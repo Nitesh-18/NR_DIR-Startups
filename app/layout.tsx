@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import 'easymde/dist/easymde.min.css'
+import { Analytics } from "@vercel/analytics/next"
 import { Toaster } from "@/components/ui/toaster";
 
 const workSans = localFont({

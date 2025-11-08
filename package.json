@@ -27,6 +27,7 @@
     "@sentry/nextjs": "^8.38.0",
     "@tailwindcss/typography": "^0.5.15",
     "@uiw/react-md-editor": "^4.0.4",
+    "@vercel/analytics": "^1.5.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "easymde": "^2.18.0",
